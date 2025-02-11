@@ -1,5 +1,6 @@
 # Define default storage type
 STORAGE_TYPE ?= memory
+CACHE_TYPE ?= none
 
 # Phony targets
 .PHONY: assistance clean-deps format lint-check test-all generate-docs compile execute
@@ -21,4 +22,4 @@ generate-docs: ## Generate Swagger API documentation
 	swag init -g ./cmd/main.go --parseDependency --parseInternal
 
 execute: ## Run the application with the specified storage type
-	go run ./cmd/main.go --storage $(STORAGE_TYPE)
+	go run ./cmd/main.go --storage-type $(STORAGE_TYPE) --cache-type $(CACHE_TYPE)

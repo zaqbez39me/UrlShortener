@@ -92,20 +92,20 @@ make build
 
 ### Using Makefile
 ```shell
-make execute STORAGE_TYPE=<STORAGE_TYPE>
+make execute STORAGE_TYPE=<STORAGE_TYPE> CACHE_TYPE=<CACHE_TYPE>
 ```
 
 ### Build and run with docker
 
 ```shell
 docker build --tag 'image_name' .
-docker run -p 8080:8080 --storage-type <STORAGE_TYPE> --env-file .env 'image_name'
+docker run -p 8080:8080 --storage-type <STORAGE_TYPE> --cache-type=<CACHE_TYPE> --env-file .env 'image_name'
 ```
 
 ### Run using docker-compose with all deps
 
 ```shell
-STORAGE_TYPE=<STORAGE_TYPE> docker compose up
+STORAGE_TYPE=<STORAGE_TYPE> CACHE_TYPE=<CACHE_TYPE> docker compose up
 ```
 
 ### Build from sources
