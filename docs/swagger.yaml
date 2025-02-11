@@ -1,0 +1,112 @@
+basePath: /api/v1
+consumes:
+- application/json
+definitions:
+  internal_handlers_url.GetResponse:
+    properties:
+      error:
+        type: string
+      link:
+        type: string
+      status:
+        type: string
+    type: object
+  internal_handlers_url.SaveRequest:
+    properties:
+      url:
+        type: string
+    required:
+    - url
+    type: object
+  internal_handlers_url.SaveResponse:
+    properties:
+      error:
+        type: string
+      link:
+        type: string
+      status:
+        type: string
+    type: object
+  url-shortener_internal_lib_api_response.Response:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Rest URL shortener
+  license:
+    name: MIT
+    url: https://github.com/zaqbez39me/UrlShortener/LICENSE
+  termsOfService: https://github.com/zaqbez39me/UrlShortener/
+  title: Golang URL Shortener
+  version: "1.0"
+paths:
+  /:
+    post:
+      consumes:
+      - application/json
+      description: Saves a new short URL for the provided original URL.
+      parameters:
+      - description: Original URL to shorten
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_handlers_url.SaveRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/internal_handlers_url.SaveResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/url-shortener_internal_lib_api_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/url-shortener_internal_lib_api_response.Response'
+      summary: Save a new short URL
+      tags:
+      - url
+  /{link}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves the original URL associated with the provided short URL.
+      parameters:
+      - description: Short URL
+        in: path
+        name: link
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/internal_handlers_url.GetResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/url-shortener_internal_lib_api_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/url-shortener_internal_lib_api_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/url-shortener_internal_lib_api_response.Response'
+      summary: Retrieve the original URL
+      tags:
+      - url
+produces:
+- application/json
+swagger: "2.0"
