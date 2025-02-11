@@ -11,6 +11,10 @@ This URL Shortener is implemented as a technical assignment for Ozon Bank reqrui
 * [go v1.23.6](https://go.dev/)
 * [gin v1.10.0](https://gin-gonic.com/)
 
+## OpenApi
+
+Can be found in `docs` and accessed via `GET /swagger/index.html/`
+
 ## 🔄 Requests
 
 ### Generate short link
