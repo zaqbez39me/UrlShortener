@@ -37,17 +37,17 @@ type GetResponse struct {
 }
 
 // GetLink retrieves the original URL for a given short URL.
-// @Summary Retrieve the original URL
-// @Description Retrieves the original URL associated with the provided short URL.
-// @Tags url
-// @Accept json
-// @Produce json
-// @Param link path string true "Short URL"
-// @Success 200 {object} GetResponse
-// @Failure 400 {object} resp.Response
-// @Failure 404 {object} resp.Response
-// @Failure 500 {object} resp.Response
-// @Router /{link} [get]
+//	@Summary		Retrieve the original URL
+//	@Description	Retrieves the original URL associated with the provided short URL.
+//	@Tags			url
+//	@Accept			json
+//	@Produce		json
+//	@Param			link	path		string	true	"Short URL"
+//	@Success		200		{object}	GetResponse
+//	@Failure		400		{object}	resp.Response
+//	@Failure		404		{object}	resp.Response
+//	@Failure		500		{object}	resp.Response
+//	@Router			/{link} [get]
 func (h *LinksHandler) GetLink(c *gin.Context) {
 	const op = "handlers.url.GetLink"
 
@@ -99,16 +99,16 @@ type SaveResponse struct {
 }
 
 // SaveLink saves a new short URL for the provided original URL.
-// @Summary Save a new short URL
-// @Description Saves a new short URL for the provided original URL.
-// @Tags url
-// @Accept json
-// @Produce json
-// @Param request body SaveRequest true "Original URL to shorten"
-// @Success 200 {object} SaveResponse
-// @Failure 400 {object} resp.Response
-// @Failure 500 {object} resp.Response
-// @Router / [post]
+//	@Summary		Save a new short URL
+//	@Description	Saves a new short URL for the provided original URL.
+//	@Tags			url
+//	@Accept			json
+//	@Produce		json
+//	@Param			request	body		SaveRequest	true	"Original URL to shorten"
+//	@Success		200		{object}	SaveResponse
+//	@Failure		400		{object}	resp.Response
+//	@Failure		500		{object}	resp.Response
+//	@Router			/ [post]
 func (h *LinksHandler) SaveLink(c *gin.Context) {
 	const op = "handlers.url.SaveLink"
 
