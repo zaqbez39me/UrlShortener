@@ -88,14 +88,14 @@ make build
 
 ### Using Makefile
 ```shell
-make run STORAGE_TYPE=<STORAGE_TYPE>
+make execute STORAGE_TYPE=<STORAGE_TYPE>
 ```
 
 ### Build and run with docker
 
 ```shell
 docker build --tag 'image_name' .
-docker run 'image_name' -p 8080:8080 --storage-type <STORAGE_TYPE> --env-file .env
+docker run -p 8080:8080 --storage-type <STORAGE_TYPE> --env-file .env 'image_name'
 ```
 
 ### Run using docker-compose with all deps
